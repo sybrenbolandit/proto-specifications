@@ -80,21 +80,20 @@
                 <artifactId>protobuf-maven-plugin</artifactId>
                 <version>0.6.1</version>
                 <configuration>
-                    <includeDependenciesInDescriptorSet>true</includeDependenciesInDescriptorSet>
                     <protocArtifact>com.google.protobuf:protoc:3.12.0:exe:${os.detected.classifier}</protocArtifact>
-                    <protoSourceRoot>${project.build.directory}/generated-resources</protoSourceRoot>
+                    <protoSourceRoot>${basedir}/src/main/proto</protoSourceRoot>
                 </configuration>
                 <executions>
                     <execution>
                         <id>protoc-java</id>
-                        <phase>compile</phase>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>compile</goal>
                         </goals>
                     </execution>
                     <execution>
                         <id>protoc-grpc-java</id>
-                        <phase>compile</phase>
+                        <phase>generate-sources</phase>
                         <goals>
                             <goal>compile-custom</goal>
                         </goals>
